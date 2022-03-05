@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC_xIHZG8tCr32Wxjuwpk2eSBagPFK8xb4',
@@ -13,7 +14,8 @@ const firebaseConfig = {
 // init firebase
 firebase.initializeApp(firebaseConfig);
 
-// init service
+// init services
 const projectFirestore = firebase.firestore();
+const projectAuth = firebase.auth(); // use JWT
 
-export { projectFirestore };
+export { projectFirestore, projectAuth };
