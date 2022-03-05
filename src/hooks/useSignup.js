@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { projectAuth } from '../firebase/config';
+import { useAuthContext } from './useAuthContext';
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
+  const { dispatch } = useAuthContext();
 
   const signup = async (email, password, displayName) => {
     /* firebase auth allows to setup a displayName and/or thumbnail besides email/password
@@ -19,7 +21,6 @@ export const useSignup = () => {
         email,
         password
       );
-      console.log(res.user);
 
       if (!res) {
         // if there is a problem registering the user
@@ -28,7 +29,10 @@ export const useSignup = () => {
 
       // add display name to user
       await res.user.updateProfile({ displayName: displayName });
-      
+
+      // dispatch login action
+      dispatch({ type: 'LOGIN', payload: res.user });
+
       setError(null);
       setIsPending(false);
     } catch (error) {
