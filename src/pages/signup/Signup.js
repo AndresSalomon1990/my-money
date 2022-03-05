@@ -15,7 +15,7 @@ export default function Signup() {
 
   return (
     <form className={styles['signup-form']} onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
+      <h2>Signup</h2>
       <label>
         <span>email:</span>
         <input
@@ -40,7 +40,7 @@ export default function Signup() {
           value={displayName}
         />
       </label>
-      <button className='btn'>Login</button>
+      <button className='btn'>Signup</button>
     </form>
   );
 }
