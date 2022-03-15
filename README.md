@@ -2,6 +2,8 @@
 
 Sample app to track expenses built with React.
 
+Find it alive in: https://mymoney-d72c8.web.app
+
 ## Techs
 
 - Vanilla CSS
